@@ -1,17 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      {{ oggi | date: 'yyyy' }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div style="background-color: whitesmoke;width: 100%; height: 100%;">
+   <ion-accordion-group>
+  <ion-accordion [value]="i+1" *ngFor="let item of data; let i = index">
+    <ion-item slot="header" color="light">
+      <ion-label>
+        {{item.datainserimento}}
+      </ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+    <a
+      href="https://www.trasparenzascuole.it/Public/APDPublic_ExtV2.aspx?CF=80007670591">
+      {{item.oggetto}}
+    </a>
+    </div>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  </ion-accordion>
+</ion-accordion-group>
+  </div>
+
 </ion-content>
